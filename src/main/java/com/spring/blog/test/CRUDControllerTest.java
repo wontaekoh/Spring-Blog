@@ -22,7 +22,7 @@ import com.spring.blog.model.RoleType;
 import com.spring.blog.model.User;
 import com.spring.blog.repository.UserRepository;
 
-@RestController // 
+@RestController
 public class CRUDControllerTest {
 
 	@Autowired // DI (Dependency Injection)
@@ -76,7 +76,7 @@ public class CRUDControllerTest {
 	@GetMapping("/test/user/{id}")
 	public User userDetail(@PathVariable int id) {
 		User user = userRepo.findById(id).orElseThrow( () -> {
-			return new IllegalArgumentException("No user is found with [ID: " + id + "]");
+			return new IllegalArgumentException("No user is found in Database. [ID: " + id + "]");
 		});
 		
 //		User user = userRepo.findById(id).orElseThrow(new Supplier<IllegalArgumentException>() {
